@@ -1,0 +1,22 @@
+{
+  "name": "schumann",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MartinMolinero/schumann.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MartinMolinero/schumann/issues"
+  },
+  "homepage": "https://github.com/MartinMolinero/schumann#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
