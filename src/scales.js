@@ -13,7 +13,7 @@ const modes = {
 
 const createScale = (modalArray, scaleArray) => {
   modalArray.map((value, index) => {
-    scaleArray = [...scaleArray, scaleArray[index] += value]
+    scaleArray = [...scaleArray, arithmetic.mod12(scaleArray[index] += value)]
   })
   return scaleArray
 }
@@ -48,5 +48,6 @@ module.exports = {
   scaleFromNoteByName,
   translateScaleValuesToNotes,
   transpose,
-  inversion
+  inversion,
+  modes
 }

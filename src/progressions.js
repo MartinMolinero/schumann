@@ -5,9 +5,12 @@ const shapes = {
   'minor': ['minor', 'diminished', 'major', 'minor', 'minor', 'major', 'major'],
 }
 
-//TBD
-// const rules = []
-
+/**
+ * 
+ * @param scale - a previously generated scale.
+ * @param shape - the type of progression we want to generate.
+ * @returns 
+ */
 const chordifyFromIndexes = (scale, shape) => {
   scale.pop()
   const progressionShape = shapes[shape]
@@ -20,16 +23,17 @@ const chordifyFromNames = (scaleNames, shape) => {
   return scaleNames.map((value, index) => chords.chordFromNoteByName(value, progressionShape[index]))
 }
 
-/**
- * First version giving name of individual notes
- * not the human name of the chords
- */
-const humanizeChordScale = (chordsArray) => {
-  return chordsArray.map((chord) => chords.translateChordValuesToNotes(chord))
+const humanizeChordProgression = (chordsArray) => {
+  const chordNotes = chordsArray.map((chord) => chords.translateChordValuesToNotes(chord))
+  let resultRepresentation = []
+  chordNotes.forEach((chord) => {
+    resultRepresentation.push(`${chords.humanizeChordNames(chord.sort())}`)
+  })
+  return resultRepresentation.join(' - ')
 }
 
 module.exports = {
   chordifyFromIndexes,
   chordifyFromNames,
-  humanizeChordScale,
+  humanizeChordProgression,
 }
